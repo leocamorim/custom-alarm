@@ -24,9 +24,9 @@ export default {
   data () {
     return {
       curTime: 'CUSTOM ALARM !!',
-      _alarmHrs: '8',
-      _alarmMin: '0',
-      _alarmSec: '0',
+      _alarmHrs: '08',
+      _alarmMin: '00',
+      _alarmSec: '00',
       _searchKey: '',
       _iframeHtml: ''
     }
