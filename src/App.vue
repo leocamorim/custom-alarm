@@ -24,9 +24,9 @@ export default {
   data () {
     return {
       curTime: 'CUSTOM ALARM !!',
-      _alarmHrs: '03',
-      _alarmMin: '06',
-      _alarmSec: '45',
+      _alarmHrs: '8',
+      _alarmMin: '0',
+      _alarmSec: '0',
       _searchKey: '',
       _iframeHtml: ''
     }
@@ -45,11 +45,13 @@ export default {
         this.curTime = formatted_date;
 
         this.$data._alarmHrs = (this.$data._alarmHrs.length < 2 ? '0'+this.$data._alarmHrs : this.$data._alarmHrs);
+        this.$data._alarmMin = (this.$data._alarmMin.length < 2 ? '0'+this.$data._alarmMin : this.$data._alarmMin);
+        this.$data._alarmSec = (this.$data._alarmSec.length < 2 ? '0'+this.$data._alarmSec : this.$data._alarmSec);
 
         if(_hrs == this.$data._alarmHrs && _min == this.$data._alarmMin && _sec == this.$data._alarmSec) {
           this.alarmRings();
         }
-        console.warn('HeartBeat:', 'I AM ALIVE!')
+        // console.warn('HeartBeat:', 'I AM ALIVE!')
       }, 1000)
     },
     alarmRings: function () {
