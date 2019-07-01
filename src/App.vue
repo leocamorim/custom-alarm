@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+
+    <h1 class="title">IMPOSSIBLE NOT TO WAKE UP WITH THIS ALARM</h1>
     
     <h1 v-on:load="console.log(curTime)">{{curTime}}</h1>
 
@@ -9,7 +11,8 @@
       <input class="single-time" type="number" v-model="$data._alarmHrs">
       <input class="single-time" type="number" v-model="$data._alarmMin">
       <input class="single-time" type="number" v-model="$data._alarmSec">
-      <!-- <button style="margin-top: 10px;" v-on:click="alarmRings">SHOOT!</button> -->
+      <button v-on:click="alarmRings">Ring now!</button>
+      <button v-on:click="cleanIFrame">Clean/Stop!</button>
     </div>
 
     <div v-html="$data._iframeHtml"></div>
@@ -24,8 +27,8 @@ export default {
   data () {
     return {
       curTime: 'CUSTOM ALARM !!',
-      _alarmHrs: '08',
-      _alarmMin: '00',
+      _alarmHrs: '07',
+      _alarmMin: '55',
       _alarmSec: '00',
       _searchKey: '',
       _iframeHtml: ''
@@ -73,12 +76,21 @@ export default {
         let _html = '<iframe src="https://www.youtube.com/embed/'+data.data.items[0].id.videoId+'?autoplay=1" allow="autoplay"></iframe>';
         this.$data._iframeHtml = _html;
       });
+    },
+    cleanIFrame: function() {
+      this.$data._iframeHtml = '';
     }
   }
 }
 </script>
 
 <style>
+#app {
+  text-align: center;
+}
+#app h1.title {
+  font-size: 50px;
+}
 .input-box {
   margin-bottom: 15px;
 }
@@ -87,5 +99,9 @@ input.url {
 }
 input.single-time {
   width: 30px
+}
+iframe {
+  width: 100%;
+  height: 70vh;
 }
 </style>
