@@ -58,6 +58,7 @@ export default {
       }, 1000)
     },
     alarmRings: function () {
+      this.$data._iframeHtml = '';
       let _val = this.$data._searchKey;
       const key = 'AIzaSyBC127ZSBObfsxEMfGLXJjpY5nBGzVkeNc';
       const ytApiSimpleSearchURL = 'https://www.googleapis.com/youtube/v3/search';
